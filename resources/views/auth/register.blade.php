@@ -51,7 +51,7 @@
             <p class="text-small">Already have an account? <a href="{{ route('login') }}">Login</a></p>
             <a href="{{ url('/') }}" class="back-link">← Back to Landing</a>
         </div>
-    </div>
+    </div
 
     {{-- Particles Background --}}
     <script>
