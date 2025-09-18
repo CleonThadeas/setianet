@@ -18,6 +18,7 @@
         footer a { color: #ccc; text-decoration: none; }
         footer a:hover { color: #fff; }
     </style>
+    <script src="css/main.css"></script>
 </head>
 <body>
 
@@ -30,5 +31,32 @@
     @include('partials.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<script>
+    particlesJS("particles-js", {
+        "particles": {
+            "number": { "value": 60 },
+            "size": { "value": 3 },
+            "color": { "value": "#ffffff" },
+            "line_linked": {
+                "enable": true,
+                "distance": 120,
+                "color": "#ffffff",
+                "opacity": 0.4,
+                "width": 1
+            },
+            "move": {
+                "enable": true,
+                "speed": 2
+            }
+        },
+        "interactivity": {
+            "events": {
+                "onhover": { "enable": true, "mode": "grab" }
+            }
+        }
+    });
+</script>
 </body>
 </html>

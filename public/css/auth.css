@@ -1,0 +1,159 @@
+/* === Base === */
+.auth-body {
+  background-color: #171010;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'Poppins', sans-serif;
+}
+
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* === Layout === */
+.auth-container {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1100px;
+  width: 100%;
+  gap: 40px;
+  padding: 30px;
+}
+
+/* === Left Section === */
+.auth-left {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.logo-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #362222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.logo h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+.auth-left h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+.auth-left h2 span {
+  color: #FF6B6B;
+}
+.auth-left p {
+  margin: 15px 0;
+  color: #ccc;
+}
+.auth-illustration {
+  margin-top: 40px;
+  width: 90%;
+  max-width: 350px;
+}
+
+/* === Right Section (Card) === */
+.auth-right {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.auth-right h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* === Form === */
+.auth-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.auth-right input {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  background: #2B2B2B;
+  color: white;
+  outline: none;
+  transition: 0.3s;
+}
+.auth-right input:focus {
+  box-shadow: 0 0 0 2px #362222;
+}
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #bbb;
+}
+.form-options a {
+  color: #FF6B6B;
+  text-decoration: none;
+}
+
+/* === Buttons === */
+.btn-primary {
+  background: #362222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  background: #423F3E;
+  transform: scale(1.05);
+}
+.w-full {
+  width: 100%;
+}
+
+.text-small {
+  font-size: 0.85rem;
+  margin-top: 15px;
+  color: #aaa;
+}
+.text-small a {
+  color: #FF6B6B;
+  font-weight: 600;
+  text-decoration: none;
+}
+.back-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #bbb;
+}
+.back-link:hover {
+  color: white;
+}
