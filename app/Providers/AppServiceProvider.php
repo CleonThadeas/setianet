@@ -5,7 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Log; // ⬅️ Tambahkan ini
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,16 +23,25 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // Default string length (biar gak error di MySQL lama)
+        // Default string length (hindari error index panjang di beberapa MySQL)
         Schema::defaultStringLength(191);
 
-        // Jalankan migrate otomatis hanya di production Railway
-        if (app()->environment('production')) {
+        // Hanya jalankan auto-migrate:
+        // - pada environment production
+        // - saat aplikasi TIDAK sedang dijalankan dari console/CLI (mis. saat artisan di CI)
+        // - dan hanya jika koneksi DB berhasil
+        if ($this->app->environment('production') && ! $this->app->runningInConsole()) {
             try {
+                // cek koneksi DB dulu (jika gagal akan melompat ke catch)
+                DB::connection()->getPdo();
+
+                // jalankan migrate sekali pakai (force karena production)
                 Artisan::call('migrate', ['--force' => true]);
-                Log::info('Migration run successfully on production.');
+
+                Log::info('Auto migrations ran successfully on production.');
             } catch (\Exception $e) {
-                Log::error('Migration failed: ' . $e->getMessage());
+                // simpan error supaya kamu bisa lihat di storage/logs/laravel.log pada Railway
+                Log::error('Auto migration failed: ' . $e->getMessage());
             }
         }
     }
