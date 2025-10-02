@@ -1,0 +1,17 @@
+includes:
+    - ./vendor/phpstan/phpstan-laravel/extension.neon
+    - ./vendor/phpstan/phpstan-laravel/rules.neon
+
+parameters:
+    paths:
+        - app
+        - routes
+    level: 5
+
+    ignoreErrors:
+        - '#View \[.*\] not found#'
+        - '#Call to undefined method Illuminate\\.*#'
+
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+composer require --dev phpstan/phpstan phpstan/extension-installer phpstan/phpstan-laravel
