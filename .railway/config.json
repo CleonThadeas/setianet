@@ -1,7 +1,7 @@
 {
     "build": {
       "commands": [
-        "composer install --ignore-platform-reqs --optimize-autoloader --no-scripts --no-interaction"
+        "composer install --ignore-platform-req=ext-bcmath --optimize-autoloader --no-scripts --no-interaction"
       ]
     },
     "start": {
